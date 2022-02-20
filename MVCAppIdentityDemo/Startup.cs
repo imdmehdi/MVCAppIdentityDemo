@@ -39,6 +39,11 @@ namespace MVCAppIdentityDemo
                     .Build();
                 options.Filters.Add(new AuthorizeFilter(policy));
             });
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("RequireStudentRole",
+                     policy => policy.RequireRole("students"));
+            });
             services.AddRazorPages()
                  .AddMicrosoftIdentityUI();
         }

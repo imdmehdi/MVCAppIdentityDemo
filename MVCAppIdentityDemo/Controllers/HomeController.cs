@@ -29,7 +29,11 @@ namespace MVCAppIdentityDemo.Controllers
         {
             return View();
         }
-
+        [Authorize(Policy = "RequireStudentRole")]
+        public IActionResult Shutdown()
+        {
+            return  Content("[RequireStudentRolesss]"); ;
+        }
         [AllowAnonymous]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
