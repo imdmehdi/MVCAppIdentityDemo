@@ -19,12 +19,12 @@ namespace MVCAppIdentityDemo.Controllers
         {
             _logger = logger;
         }
-
+        [Authorize(Roles = "teachers")]
         public IActionResult Index()
         {
             return View();
         }
-
+        [Authorize(Roles = "students")]
         public IActionResult Privacy()
         {
             return View();
